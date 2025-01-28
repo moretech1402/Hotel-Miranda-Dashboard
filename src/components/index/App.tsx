@@ -16,6 +16,7 @@ import { Contact } from '../pages/Contact'
 import {axiosSetup} from '../../app/axiosSetup'
 import { RoomDetail } from '../pages/RoomDetail'
 import { UserDetail } from '../pages/UserDetail'
+import { Hello } from '../pages/Hello'
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -33,6 +34,7 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path={pages.login.path} element={<Login />} />
+          <Route path="/test" element={<Hello />} />
           <Route element={<AuthMiddleware />}>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />

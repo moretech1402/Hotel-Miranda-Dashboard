@@ -68,14 +68,19 @@ export const Header = () => {
         window.location.reload();
     }
 
-    const title = id ? page.detailTitle : page.title;
+    const ignoreIdRoutes = ['/test'];
+
+    let title = '';
+    const shouldIgnoreId = ignoreIdRoutes.includes(route);
+    if(!shouldIgnoreId)
+        title = id ? page.detailTitle : page.title;
 
     return (
         <Container className="bg-main">
             <Menu>
                 <FaArrowLeft/>
                 <Path>
-                    <h2>{title}</h2>
+                    {title ? <h2>{title}</h2> : <></>}
                     {id ? <small className="color-secondary">{`${page.uri}`} / <span>{id}</span></small> : <></>}
                 </Path>
                 <Icons>
